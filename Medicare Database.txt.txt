@@ -1,0 +1,147 @@
+create database mydb;
+
+use mybd;
+
+create table admin (admin_id int PRIMARY KEY auto_increment,admin varchar(255),password varchar(255));
+
+desc admin;
+
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| admin_id | int          | NO   | PRI | NULL    | auto_increment |
+| admin    | varchar(255) | YES  |     | NULL    |                |
+| password | varchar(255) | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+
+insert into admin(admin_id,admin,password) values (1,'Lucky','Lucky@123');
+insert into admin(admin_id,admin,password) values (2,'Sagar','Sagar@123');
+insert into admin(admin_id,admin,password) values (3,'Sowja','Sowja@123');
+insert into admin(admin_id,admin,password) values (4,'Durgarao','Durgarao@123');
+insert into admin(admin_id,admin,password) values (5,'Ramya','Ramya@123');
+
+select * from admin;
+
++----------+----------+--------------+
+| admin_id | admin    | password     |
++----------+----------+--------------+
+|        1 | Lucky    | Lucky@123    |
+|        2 | Sagar    | Sagar@123    |
+|        3 | Sowja    | Sowja@123    |
+|        4 | Durgarao | Durgarao@123 |
+|        5 | Ramya    | Ramya@123    |
++----------+----------+--------------+
+
+******************************************************************
+
+create table user (user_id int PRIMARY KEY auto_increment,age int not null,first_name varchar(255),gender varchar(255),last_name varchar(255),mobile_no varchar(255),password varchar(255),username varchar(255));
+
+desc user;
+
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| user_id    | int          | NO   | PRI | NULL    | auto_increment |
+| age        | int          | NO   |     | NULL    |                |
+| first_name | varchar(255) | YES  |     | NULL    |                |
+| gender     | varchar(255) | YES  |     | NULL    |                |
+| last_name  | varchar(255) | YES  |     | NULL    |                |
+| mobile_no  | varchar(255) | YES  |     | NULL    |                |
+| password   | varchar(255) | YES  |     | NULL    |                |
+| username   | varchar(255) | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+
+insert into user (user_id,age,first_name,gender,last_name,mobile_no,password,username) values (1,20,'Lakshmi','Female','Priya','1234567891','Lucky@123','Lucky');
+insert into user (user_id,age,first_name,gender,last_name,mobile_no,password,username) values (2,18,'Jaswanth','Male','Sagar','8976598761','Sagar@123','Sagar');
+insert into user (user_id,age,first_name,gender,last_name,mobile_no,password,username) values (3,25,'Ramya','Female','Harika','7896546710','Ramya@123','Ramya');
+
+select * from user;
+
++---------+-----+------------+--------+-----------+------------+-----------+----------+
+| user_id | age | first_name | gender | last_name | mobile_no  | password  | username |
++---------+-----+------------+--------+-----------+------------+-----------+----------+
+|       1 |  20 | Lakshmi    | Female | Priya     | 1234567891 | Lucky@123 | Lucky    |
+|       2 |  18 | Jaswanth   | Male   | Sagar     | 8976598761 | Sagar@123 | Sagar    |
+|       3 |  25 | Ramya      | Female | Harika    | 7896546710 | Ramya@123 | Ramya    |
++---------+-----+------------+--------+-----------+------------+-----------+----------+
+
+*****************************************************************************************************
+
+create table medicines (medicine_id int PRIMARY KEY auto_increment,description varchar(255),expdate varchar(255),manufacture_date varchar(255),medicine_name varchar(255),price int not null,seller varchar(255),status varchar(255),type varchar(255));
+
+desc medicines;
+
++------------------+--------------+------+-----+---------+----------------+
+| Field            | Type         | Null | Key | Default | Extra          |
++------------------+--------------+------+-----+---------+----------------+
+| medicine_id      | int          | NO   | PRI | NULL    | auto_increment |
+| description      | varchar(255) | YES  |     | NULL    |                |
+| expdate          | varchar(255) | YES  |     | NULL    |                |
+| manufacture_date | varchar(255) | YES  |     | NULL    |                |
+| medicine_name    | varchar(255) | YES  |     | NULL    |                |
+| price            | int          | NO   |     | NULL    |                |
+| seller           | varchar(255) | YES  |     | NULL    |                |
+| status           | varchar(255) | YES  |     | NULL    |                |
+| type             | varchar(255) | YES  |     | NULL    |                |
++------------------+--------------+------+-----+---------+----------------+
+
+select * from medicines;
+
++-------------+--------------------------------------+------------+------------------+---------------+-------+---------+-----------+----------+
+| medicine_id | description                          | expdate    | manufacture_date | medicine_name | price | seller  | status    | type     |
++-------------+--------------------------------------+------------+------------------+---------------+-------+---------+-----------+----------+
+|           1 | Fever                                | 2023-04-05 | 2022-04-05       | Paracetamol   |    20 | Priya   | Available | Capsules |
+|           2 | Non-steroidal Anti-inflammatory Drug | 2023-04-05 | 2022-05-05       | Saridon       |    10 | Apollo  | Available | Capsules |
+|           3 | Cough                                | 2023-06-05 | 2022-06-05       | Coldact       |    30 | Lucky   | Available | Capsules |
+|           4 | Fever                                | 2023-06-05 | 2022-06-05       | DOLO-650      |    50 | Srivani | Available | Capsules |
++-------------+--------------------------------------+------------+------------------+---------------+-------+---------+-----------+----------+
+
+************************************************************************************************************************************************************
+
+create table cart (medicine_id int PRIMARY KEY auto_increment,description varchar(255),medicine_name varchar(255),price int not null);
+
+desc cart;
+
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| medicine_id   | int          | NO   | PRI | NULL    |       |
+| description   | varchar(255) | YES  |     | NULL    |       |
+| medicine_name | varchar(255) | YES  |     | NULL    |       |
+| price         | int          | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+
+select * from cart;
+
++-------------+--------------------------------------+---------------+-------+
+| medicine_id | description                          | medicine_name | price |
++-------------+--------------------------------------+---------------+-------+
+|           1 | Fever                                | Paracetamol   |    20 |
+|           2 | Non-steroidal Anti-inflammatory Drug | Saridon       |    10 |
++-------------+--------------------------------------+---------------+-------+
+
+*******************************************************************************************
+
+create table contact_us(c_id int PRIMARY KEY auto_increment,contact_no bigint not null,description varchar(255),email_id varchar(255),name varchar(255));
+
+desc contact_us;
+
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| c_id        | int          | NO   | PRI | NULL    | auto_increment |
+| contact_no  | bigint       | NO   |     | NULL    |                |
+| description | varchar(255) | YES  |     | NULL    |                |
+| email_id    | varchar(255) | YES  |     | NULL    |                |
+| name        | varchar(255) | YES  |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+
+select * from contact_us;
+
++------+------------+-------------------+-------------+---------------+
+| c_id | contact_no | description       | email_id    | name          |
++------+------------+-------------------+-------------+---------------+
+|    1 | 7896543561 | Fever             | Lucky@123   | Lakshmi Priya |
+|    2 | 8979654321 | Outdated Medicine | Srivani@123 | Srivani       |
++------+------------+-------------------+-------------+---------------+
+
